@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<div class="d-flex flex-wrap justify-content-center gap-2 px-2">
+<div class="d-flex flex-wrap justify-content-evenly gap-2 ms-5 me-5 mb-5 mt-5">
   {% for post in data %}
-    <div class="card text-center">
-      <div class="card-header">
-        Featured
+    <div class="card text-center" style="width: 40%;">
+      <div class="card-header bg-black text-light">
+        Blog
       </div>
       <div class="card-body">
         <h5 class="card-title">{{post.title}}</h5>
@@ -16,7 +16,15 @@
       <div class="card-footer text-muted">
         {{post.category.name}}
       </div>
+      <p>Date added: {{ post.date_added }}</p>
+      <div class="button">
+        <a class="btn btn-danger" href=" {% url 'edit_post' post.id %} " class="btn btn-denger">Edit</a>
+        <a class="btn btn-warning" href=" {% url 'delete_post' post.id %} " class="btn btn-warning">Delete</a>
+      </div>
     </div>
+    
+
+    
   {% endfor %}
 <div>
 

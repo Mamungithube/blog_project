@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
-{%load crispy_forms_tags %} 
-{% block contant %}
+{% load crispy_forms_tags %} 
+{% block content %}
 
 
-<form style="width: 50%; margin: auto;" method="POST">
+<form style="width: 50% ; margin: auto;" method="post">
     <h1>Add profile page</h1>
-    <br>
     {% csrf_token %}
-    {{ form|crispy }}
+{{ form | crispy }}
 <button class="btn btn-danger">submit</button>
 </form>
 {% endblock %}
