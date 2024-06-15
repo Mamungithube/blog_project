@@ -3,11 +3,11 @@ from catagories.models import catagories
 from Authors.models import Authors
 # Create your models here.
 class post(models.Model):
-    titel=models.CharField(max_length=64)
+    title=models.CharField(max_length=64)
     content = models.TextField(blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
     category =models.ManyToManyField(catagories)
     Authors = models.ForeignKey(Authors,on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.titel} {self.Authors.name}"
+        return f"{self.title} {self.Authors.name}"

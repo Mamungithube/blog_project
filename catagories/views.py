@@ -5,10 +5,10 @@ from . import forms
 
 def add_catagories(request):
     if request.method == 'POST':
-        author_form = forms.addcatagories(request.POST)
-        if author_form.is_valid():
-            author_form.save()
+        catagories_form = forms.addcatagories(request.POST)
+        if catagories_form.is_valid():
+            catagories_form.save()
             return redirect('add_author')
     else:
-        author_form = forms.addcatagories(request.POST)
-    return render(request, 'add_author.html',{'form':author_form})
+        catagories_form = forms.addcatagories(request.POST)
+    return render(request, 'add_catagories.html',{'form':catagories_form})
