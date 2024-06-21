@@ -13,10 +13,12 @@
         <p class="card-text">{{post.content}}</p>
         <a href="#" class="btn btn-primary">{{post.Authors.name}}</a>
       </div>
-      <div class="card-footer text-muted">
-        {{post.category.name}}
-      </div>
       <p>Date added: {{ post.date_added }}</p>
+      <p>catagories:
+        {% for cat in post.category.all %}
+        <button class="btn btn-primary btn-sm m-2" disabled >{{cat.name}} </button>
+        {% endfor %}<p/>
+        
       <div class="button">
         <a class="btn btn-danger" href=" {% url 'edit_post' post.id %} " class="btn btn-denger">Edit</a>
         <a class="btn btn-warning" href=" {% url 'delete_post' post.id %} " class="btn btn-warning">Delete</a>
